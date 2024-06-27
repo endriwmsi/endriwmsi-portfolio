@@ -1,8 +1,8 @@
-// ParticleWave.js
 import { useRef, useEffect } from 'react';
-import { useFrame, extend, useThree } from '@react-three/fiber';
+import { useFrame, extend, useThree,  } from '@react-three/fiber';
 import * as THREE from 'three';
 
+// Extender com ShaderMaterial do THREE
 extend({ ShaderMaterial: THREE.ShaderMaterial });
 
 const vertexShader = `
@@ -26,7 +26,7 @@ const SEPARATION = 200, AMOUNTX = 500, AMOUNTY = 500;
 
 const ParticleWave = () => {
   const { scene } = useThree();
-  const groupRef = useRef();
+  const groupRef = useRef<THREE.Group | null>(null);
   const count = useRef(0);
 
   useEffect(() => {
@@ -58,15 +58,17 @@ const ParticleWave = () => {
     });
 
     const particles = new THREE.Points(geometry, material);
-    groupRef.current.add(particles);
-    scene.add(groupRef.current);
+    if (groupRef.current) {
+      groupRef.current.add(particles);
+      scene.add(groupRef.current);
+    }
 
   }, [scene]);
 
   useFrame(() => {
     if (groupRef.current) {
-      const positions = groupRef.current.children[0].geometry.attributes.position.array;
-      const scales = groupRef.current.children[0].geometry.attributes.scale.array;
+      const positions = (groupRef.current.children[0] as THREE.Points).geometry.attributes.position.array;
+      const scales = (groupRef.current.children[0] as THREE.Points).geometry.attributes.scale.array;
       let i = 0, j = 0;
       for (let ix = 0; ix < AMOUNTX; ix++) {
         for (let iy = 0; iy < AMOUNTY; iy++) {
@@ -76,8 +78,8 @@ const ParticleWave = () => {
           j++;
         }
       }
-      groupRef.current.children[0].geometry.attributes.position.needsUpdate = true;
-      groupRef.current.children[0].geometry.attributes.scale.needsUpdate = true;
+      (groupRef.current.children[0] as THREE.Points).geometry.attributes.position.needsUpdate = true;
+      (groupRef.current.children[0] as THREE.Points).geometry.attributes.scale.needsUpdate = true;
     }
     count.current += 0.1;
   });
