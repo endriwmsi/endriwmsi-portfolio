@@ -7,8 +7,9 @@
   line-height: 1.5;
   font-weight: 400;
 
+  /* TODO: add light mode  */
   color-scheme: dark;
-  color: rgba(0, 0, 0, 1);
+  color: rgba(255, 255, 255, 0.87);
   background-color: #00000;
 
   font-synthesis: none;
