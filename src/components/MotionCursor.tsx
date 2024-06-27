@@ -5,13 +5,15 @@ const MotionCursor = () => {
     <>
       <AnimatedCursor
         innerSize={0}
-        outerSize={35}
+        outerSize={20}
         innerScale={1}
         outerScale={2}
         outerAlpha={0}
         outerStyle={{
           backgroundColor: 'rgba(223, 255, 0, 0.4)',
+          border: '1px solid rgba(223, 255, 0, 0.5)',
         }}
+        showSystemCursor={true}
       />
     </>
   )

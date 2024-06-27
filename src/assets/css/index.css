@@ -2,8 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .separator {
+    width: 100%;
+    height: 1px;
+    margin: 0.5rem 0;
+    background: radial-gradient(circle, rgba(163, 230, 53, 0.2) 0%, rgba(0, 0, 0, 0) 70%);
+  }
+
+  .peer:last-child .separator {
+    display: none;
+  }
+}
+
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: Syne, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
