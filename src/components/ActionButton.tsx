@@ -1,12 +1,12 @@
 import { cn } from "../app/utils/cn";
 
-type ButtonProps = {
+type ActionButtonProps = {
   icon: React.ReactNode;
   actionTitle: string;
   action: () => void;
 };
 
-const Button = ({ icon, actionTitle, action }: ButtonProps) => {
+const ActionButton = ({ icon, actionTitle, action }: ActionButtonProps) => {
   return (
     <button 
       onClick={action} 
@@ -23,4 +23,4 @@ const Button = ({ icon, actionTitle, action }: ButtonProps) => {
   );
 };
 
-export default Button;
+export default ActionButton;
