@@ -8,6 +8,8 @@ const TypingAnimation = () => {
       2000, // wait 1s before replacing "Mice" with "Hamsters"
       'And coffee lover',
       2000,
+      '💕 Valéria',
+      2000,
     ]}
     wrapper="span"
     speed={10}

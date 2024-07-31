@@ -58,7 +58,7 @@ const App = () => {
           <div 
             className=' w-full h-full flex rounded-md bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-0'
           >
-            <div className='text-white w-full overflow-y-scroll'>
+            <div className='text-white w-full md:overflow-y-scroll'>
               <div>
                 <h1 className="text-xl font-bold m-7">About Me</h1>
 
