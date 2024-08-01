@@ -19,10 +19,10 @@ const Content = () => (
           </div>
           <div className='md:w-1/2 text-zinc-300 border-t border-zinc-300/10 p-7'>
             <ul className='list-none space-y-2'>
-              {decoratorsData.map((decorator) => (
-                <li key={decorator.id} className='w-full flex flex-col justify-between peer'>
+              {decoratorsData.map((decorator, index) => (
+                <li key={index} className='w-full flex flex-col justify-between peer'>
                   <Decorator text={decorator.text} value={decorator.value} />
-                  {decorator.id < decoratorsData.length - 1 && <div className='separator peer' />}
+                  {index < decoratorsData.length - 1 && <div className='separator peer' />}
                 </li>
               ))}
             </ul>
